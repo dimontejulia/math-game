@@ -20,7 +20,6 @@ class Game
     if (player1.currentTurn?)
       question = Question.new()
       puts "P1: #{question.math_question}"
-      puts question.correctAnswer
       user_answer = gets.chomp.to_i
       if (question.correctAnswer == user_answer)
         puts 'YES! You are correct.'
@@ -55,8 +54,9 @@ class Game
       end
     end
   end
+  
   puts "~~~~~~~~~~~~~~~~~~GAME OVER~~~~~~~~~~~~~~~~~~~~"
-  if (player1.turn == 0)
+  if (player1.lives == 0)
     puts "PLAYER 2 WINS!!!!!"
     puts "Final Score: #{player1.lives}/3 vs P2: #{player2.lives}/3"
     puts "Goodbye!"
